@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Split and Translate</title>
+    <style>
+        body {
+            background-color: rgb(245, 240, 240);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .text-field {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 50px;
+            padding: 10px;
+            margin-left: -1000px;
+            font-size: 60px;
+            margin-bottom: 120px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .text-field:hover {
+            filter: blur(1px);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: filter 0.5s;
+        }
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-left: 1000px;
+            margin-top: -100px;
+            
+        }
+        .part {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            
+            background-image: url('h6-img-9.png');
+            background-size: 200%;
+            transition: transform 0.7s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+        .part1 {
+            background-position: top left;
+            transform: translate(10%, 70%);
+        }
+        .part2 {   
+            background-position: top right;
+            transform: translate(-30%, 50%);
+        }
+        .part3 {
+            background-position: bottom left;
+            transform: translate(70%, -10%);
+        }
+        .part4 {
+            background-position: bottom right;
+            transform: translate(-100%, -50%);
+        }
+        .text-field.hover ~ .container .part {
+            opacity: 1;
+        }
+        .text-field.hover ~ .container .part1 {
+            transform: translate(-49%, -49%) rotate(-1deg) ;
+        }
+        .text-field.hover ~ .container .part2 {
+            transform: translate(49%, -49%)rotate(-1deg) ;
+
+        }
+        .text-field.hover ~ .container .part3 {
+            transform: translate(-49%, 49%)rotate(-1deg) ;
+
+        }
+        .text-field.hover ~ .container .part4 {
+            transform: translate(49%, 49%) rotate(-1deg);
+
+        }
+
+        .text {
+           margin-top: -450px;
+            padding: 10px;
+            margin-left: -1000px;
+            font-size: 60px;
+            border-radius: 5px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .text:hover {
+            
+            filter: blur(1px);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: filter 0.5s;
+        }
+        
+        .container1 {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-top: -170px;
+            margin-left: 1000px;
+        }
+        .partt {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            
+            background-image: url('h6-img-3.png');
+            background-size: 200%;
+            transition: transform 0.7s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+        .part11 {
+            background-position: top left;
+            transform: translate(10%, 70%);
+        }
+        .part22 {   
+            background-position: top right;
+            transform: translate(-30%, 50%);
+        }
+        .part33 {
+            background-position: bottom left;
+            transform: translate(70%, -10%);
+        }
+        .part44 {
+            background-position: bottom right;
+            transform: translate(-100%, -50%);
+        }
+        .text.hover ~ .container1 .partt {
+            opacity: 1;
+        }
+        .text.hover ~ .container1 .part11 {
+            transform: translate(-49%, -49%) rotate(-1deg) ;
+        }
+        .text.hover ~ .container1 .part22 {
+            transform: translate(49%, -49%)rotate(-1deg) ;
+
+        }
+        .text.hover ~ .container1 .part33 {
+            transform: translate(-49%, 49%)rotate(-1deg) ;
+
+        }
+        .text.hover ~ .container1 .part44 {
+            transform: translate(49%, 49%) rotate(-1deg);
+
+        }
+
+        .text1 {
+           margin-top: -300px;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 10px;
+            margin-left: -1000px;
+            font-size: 60px;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .text1:hover {
+            filter: blur(1px);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: filter 0.5s;
+        }
+        .container11 {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-top: -300px;
+            margin-left: 1000px;
+        }
+        .parttt {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            
+            background-image: url('h6-img-10.png');
+            background-size: 200%;
+            transition: transform 0.7s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+        .part111 {
+            background-position: top left;
+            transform: translate(10%, 70%);
+        }
+        .part222 {   
+            background-position: top right;
+            transform: translate(-30%, 50%);
+        }
+        .part333 {
+            background-position: bottom left;
+            transform: translate(70%, -10%);
+        }
+        .part444 {
+            background-position: bottom right;
+            transform: translate(-100%, -50%);
+        }
+        .text1.hover ~ .container11 .parttt {
+            opacity: 1;
+        }
+        .text1.hover ~ .container11 .part111 {
+            transform: translate(-49%, -49%) rotate(-1deg);
+        }
+        .text1.hover ~ .container11 .part222 {
+            transform: translate(49%, -49%) rotate(-1deg);
+        }
+        .text1.hover ~ .container11 .part333 {
+            transform: translate(-49%, 49%) rotate(-1deg);
+        }
+        .text1.hover ~ .container11 .part444 {
+            transform: translate(49%, 49%)rotate(-1deg);
+        }
+
+        .text11 {
+           margin-top: -150px;
+            padding: 10px;
+            margin-left: -1000px;
+            font-size:60px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .text11:hover {
+            filter: blur(1px);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: filter 0.5s;
+        }
+        .container111 {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-top: -500px;
+            margin-left: 1000px;
+        }
+        .partttt {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            
+            background-image: url('h6-img-7.png');
+            background-size: 200%;
+            transition: transform 0.7s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+        .part1111 {
+            background-position: top left;
+            transform: translate(10%, 70%);
+        }
+        .part2222 {   
+            background-position: top right;
+            transform: translate(-30%, 50%);
+        }
+        .part3333 {
+            background-position: bottom left;
+            transform: translate(70%, -10%);
+        }
+        .part4444 {
+            background-position: bottom right;
+            transform: translate(-100%, -50%);
+        }
+        .text11.hover ~ .container111 .partttt {
+            opacity: 1;
+        }
+        .text11.hover ~ .container111 .part1111 {
+            transform: translate(-49%, -49%) rotate(-1deg);
+        }
+        .text11.hover ~ .container111 .part2222 {
+            transform: translate(49%, -49%) rotate(-1deg);
+        }
+        .text11.hover ~ .container111 .part3333 {
+            transform: translate(-49%, 49%) rotate(-1deg);
+        }
+        .text11.hover ~ .container111 .part4444 {
+            transform: translate(49%, 49%) rotate(-1deg);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 80px;position: absolute;margin-top: -800px;">Designs</h1>
+    <h3 style="margin-left: -1600px;position: absolute;margin-top: -630px;">Web Flow Development</h3>
+    <h3 style="margin-left: -1600px;position: absolute;margin-top: -380px;">Web Flow Development</h3>
+    <h3 style="margin-left: -1600px;position: absolute;margin-top: 50px;">Web Flow Development</h3>
+    <h3 style="margin-left: -1600px;position: absolute;margin-top: 380px;">Web Flow Development</h3>
+
+    
+
+    <h1 class="text-field">UI/UX Design</h1>
+    <div class="container">
+
+        <div class="part part1"></div>
+        <div class="part part2"></div>
+        <div class="part part3"></div>
+        <div class="part part4">
+            
+        </div>
+    </div>
+
+    <h1 class="text">Graphic Design</h1>
+    <div class="container1">
+        <div class="partt part11">
+            
+        </div>
+        <div class="partt part22"></div>
+        <div class="partt part33"></div>
+        <div class="partt part44">
+        </div>
+    </div>
+
+    <h1 class="text1">Web Design</h1>
+    <div class="container11">
+        <div class="parttt part111">
+            
+        </div>
+        <div class="parttt part222"></div>
+        <div class="parttt part333"></div>
+        <div class="parttt part444">
+            
+        </div>
+    </div>
+
+    <h1 class="text11">Motion Graphics</h1>
+    <div class="container111">
+        <div class="partttt part1111">
+            
+        </div>
+        <div class="partttt part2222"></div>
+        <div class="partttt part3333"></div>
+        <div class="partttt part4444">
+            
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.text-field').classList.add('hover');
+        
+            document.querySelectorAll('.text-field').forEach(function(element) {
+                element.addEventListener('mouseenter', function() {
+                    document.querySelectorAll('.text-field').forEach(e => e.classList.add('hover'));
+                    document.querySelectorAll('.text, .text1, .text11').forEach(e => e.classList.remove('hover'));
+                });
+            });
+        
+            document.querySelectorAll('.text').forEach(function(element) {
+                element.addEventListener('mouseenter', function() {
+                    document.querySelectorAll('.text').forEach(e => e.classList.add('hover'));
+                    document.querySelectorAll('.text-field, .text1, .text11').forEach(e => e.classList.remove('hover'));
+                });
+            });
+        
+            document.querySelectorAll('.text1').forEach(function(element) {
+                element.addEventListener('mouseenter', function() {
+                    document.querySelectorAll('.text1').forEach(e => e.classList.add('hover'));
+                    document.querySelectorAll('.text-field, .text, .text11').forEach(e => e.classList.remove('hover'));
+                });
+            });
+        
+            document.querySelectorAll('.text11').forEach(function(element) {
+                element.addEventListener('mouseenter', function() {
+                    document.querySelectorAll('.text11').forEach(e => e.classList.add('hover'));
+                    document.querySelectorAll('.text-field, .text1, .text').forEach(e => e.classList.remove('hover'));
+                });
+            });
+        
+            document.addEventListener('mousemove', function(event) {
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+        
+                const offsetX = centerX - event.pageX;
+                const offsetY = centerY - event.pageY;
+        
+                const moveX = offsetX * 0.05;
+                const moveY = offsetY * 0.05;
+        
+                document.querySelectorAll('.container, .container1, .container11, .container111').forEach(function(element) {
+                    element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>
